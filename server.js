@@ -14,14 +14,13 @@ const server = http.createServer((req, res) => {
         console.error(err);
         res.statusCode = 500;
       } else {
-        res.setHeader('Content-Type', 'text/html');
-        res.end(data);
-        res.setHeader('Content-Disposition', `attachment; filename="${file}"`);
-        res.setHeader('Content-Type', 'application/x-sh');
-        res.setHeader('Access-Control-Allow-Origin', '*'); 
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-        res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-        res.end(data);
+       res.setHeader('Content-Type', 'application/x-sh');
+res.setHeader('Content-Disposition', `attachment; filename="${file}"`);
+res.setHeader('Access-Control-Allow-Origin', '*');
+res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+res.end(data);
+
       }
     });
   } else if (req.url === '/url') {
